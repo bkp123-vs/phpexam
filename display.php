@@ -5,18 +5,25 @@ $QUERY = "SELECT * FROM STUDENT";
 $data = mysqli_query($conn,$QUERY);
 $result = mysqli_num_rows($data);
 ?>
+  <style>
+      th{
+        padding: 10px
+      }
+   </style>
 <table>
     <tr>
         <th>Roll NO </th>
+        <th>Student Image</th>
         <th>Student Name</th>
         <th>Class</th>
-        <th>Operations</th>
+        <th colspan="2">Operations</th>
     </tr>
     <?php 
         if($result!=0){
             while($tabledata = mysqli_fetch_assoc($data)){
                 echo "<tr>
                     <td>".$tabledata['rollno']."</td>
+                    <td><img src= '".$tabledata['picsource']."' heigth='100' width='100'></td>
                     <td>".$tabledata['name']."</td>
                     <td>".$tabledata['class']."</td>
                     <td> 
